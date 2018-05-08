@@ -15,7 +15,7 @@ possible:
   - OS:
   - Node.js version:
   - npm version:
-  - `redis` version:
+  - `@google-cloud/redis` version:
 
 #### Steps to reproduce
 
