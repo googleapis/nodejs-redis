@@ -2,7 +2,7 @@ version: 2
 workflows:
   version: 2
   tests:
-    jobs: &master_and_releases
+    jobs: &workflow_jobs
       - node6:
           filters: &all_commits
             tags:
@@ -43,15 +43,15 @@ workflows:
           filters:
             branches:
               only: master
-    jobs: *master_and_releases
+    jobs: *workflow_jobs
 jobs:
   node6:
     docker:
       - image: 'node:6'
         user: node
-    steps: &releases
+    steps: &unit_tests_steps
       - checkout
-      - run: &workflow_jobs
+      - run: &remove_package_lock
           name: Remove package-lock.json if needed.
           command: |
             WORKFLOW_NAME=`python .circleci/get_workflow_name.py`
@@ -62,7 +62,7 @@ jobs:
             else
               echo "Not a nightly build, skipping this step."
             fi
-      - run: &unit_tests_steps
+      - run: &npm_install_and_link
           name: Install and link the module
           command: |-
             mkdir -p /home/node/.npm-global
@@ -82,25 +82,25 @@ jobs:
     docker:
       - image: 'node:8'
         user: node
-    steps: *releases
+    steps: *unit_tests_steps
   node9:
     docker:
       - image: 'node:9'
         user: node
-    steps: *releases
+    steps: *unit_tests_steps
   node10:
     docker:
       - image: 'node:10'
         user: node
-    steps: *releases
+    steps: *unit_tests_steps
   lint:
     docker:
       - image: 'node:8'
         user: node
     steps:
       - checkout
-      - run: *workflow_jobs
-      - run: *unit_tests_steps
+      - run: *remove_package_lock
+      - run: *npm_install_and_link
       - run:
           name: Run linting.
           command: npm run lint
@@ -112,8 +112,8 @@ jobs:
         user: node
     steps:
       - checkout
-      - run: *workflow_jobs
-      - run: *unit_tests_steps
+      - run: *remove_package_lock
+      - run: *npm_install_and_link
       - run:
           name: Build documentation.
           command: npm run docs
