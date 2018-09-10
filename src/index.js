@@ -27,6 +27,15 @@
 /**
  * @namespace google.cloud.redis.v1
  */
+/**
+ * @namespace google.protobuf
+ */
+/**
+ * @namespace google.rpc
+ */
+/**
+ * @namespace google.type
+ */
 
 'use strict';
 
