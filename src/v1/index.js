@@ -12,4 +12,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-console.warn('no samples available 😐');
+'use strict';
+
+const CloudRedisClient = require('./cloud_redis_client');
+
+module.exports.CloudRedisClient = CloudRedisClient;
