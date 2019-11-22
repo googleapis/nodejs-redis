@@ -19,7 +19,7 @@ for version in versions:
             proto_path=f'google/cloud/{name}/{version}',
             extra_proto_files=["google/cloud/common_resources.proto"],
             version=version,
-            )
+    )
     s.copy(
         library,
         excludes=['package.json', 'README.md', 'src/index.ts'])
