@@ -1,12 +1,12 @@
 {
-  "updateTime": "2019-11-21T08:38:26.695233Z",
+  "updateTime": "2019-11-22T07:05:00.201604Z",
   "sources": [
     {
       "git": {
         "name": "googleapis",
         "remote": "https://github.com/googleapis/googleapis.git",
-        "sha": "5bc0fecee454f857cec042fb99fe2d22e1bff5bc",
-        "internalRef": "281635572"
+        "sha": "3ba7ddc4b2acf532bdfb0004ca26311053c11c30",
+        "internalRef": "281852671"
       }
     },
     {

@@ -40,7 +40,6 @@ export class Operation {
   constructor() {}
   promise() {}
 }
-
 function mockSimpleGrpcMethod(
   expectedRequest: {},
   response: {} | null,
@@ -78,7 +77,7 @@ function mockLongRunningGrpcMethod(
     return Promise.resolve([mockOperation]);
   };
 }
-describe('CloudRedisClient', () => {
+describe('v1beta1.CloudRedisClient', () => {
   it('has servicePath', () => {
     const servicePath = cloudredisModule.v1beta1.CloudRedisClient.servicePath;
     assert(servicePath);
@@ -96,57 +95,11 @@ describe('CloudRedisClient', () => {
     const client = new cloudredisModule.v1beta1.CloudRedisClient();
     assert(client);
   });
-  it('should create a client with gRPC option', () => {
+  it('should create a client with gRPC fallback', () => {
     const client = new cloudredisModule.v1beta1.CloudRedisClient({
       fallback: true,
     });
     assert(client);
-  });
-  describe('listInstances', () => {
-    it('invokes listInstances without error', done => {
-      const client = new cloudredisModule.v1beta1.CloudRedisClient({
-        credentials: {client_email: 'bogus', private_key: 'bogus'},
-        projectId: 'bogus',
-      });
-      // Mock request
-      const request: protosTypes.google.cloud.redis.v1beta1.IListInstancesRequest = {};
-      // Mock response
-      const expectedResponse = {};
-      // Mock gRPC layer
-      client._innerApiCalls.listInstances = mockSimpleGrpcMethod(
-        request,
-        expectedResponse,
-        null
-      );
-      client.listInstances(request, (err: {}, response: {}) => {
-        assert.ifError(err);
-        assert.deepStrictEqual(response, expectedResponse);
-        done();
-      });
-    });
-
-    it('invokes listInstances with error', done => {
-      const client = new cloudredisModule.v1beta1.CloudRedisClient({
-        credentials: {client_email: 'bogus', private_key: 'bogus'},
-        projectId: 'bogus',
-      });
-      // Mock request
-      const request: protosTypes.google.cloud.redis.v1beta1.IListInstancesRequest = {};
-      // Mock response
-      const expectedResponse = {};
-      // Mock gRPC layer
-      client._innerApiCalls.listInstances = mockSimpleGrpcMethod(
-        request,
-        null,
-        error
-      );
-      client.listInstances(request, (err: FakeError, response: {}) => {
-        assert(err instanceof FakeError);
-        assert.strictEqual(err.code, FAKE_STATUS_CODE);
-        assert(typeof response === 'undefined');
-        done();
-      });
-    });
   });
   describe('getInstance', () => {
     it('invokes getInstance without error', done => {
@@ -562,6 +515,63 @@ describe('CloudRedisClient', () => {
           assert.strictEqual(err.code, FAKE_STATUS_CODE);
           done();
         });
+    });
+  });
+  describe('listInstances', () => {
+    it('invokes listInstances without error', done => {
+      const client = new cloudredisModule.v1beta1.CloudRedisClient({
+        credentials: {client_email: 'bogus', private_key: 'bogus'},
+        projectId: 'bogus',
+      });
+      // Mock request
+      const request: protosTypes.google.cloud.redis.v1beta1.IListInstancesRequest = {};
+      // Mock response
+      const expectedResponse = {};
+      // Mock Grpc layer
+      client._innerApiCalls.listInstances = (
+        actualRequest: {},
+        options: {},
+        callback: Callback
+      ) => {
+        assert.deepStrictEqual(actualRequest, request);
+        callback(null, expectedResponse);
+      };
+      client.listInstances(request, (err: FakeError, response: {}) => {
+        assert.ifError(err);
+        assert.deepStrictEqual(response, expectedResponse);
+        done();
+      });
+    });
+  });
+  describe('listInstancesStream', () => {
+    it('invokes listInstancesStream without error', done => {
+      const client = new cloudredisModule.v1beta1.CloudRedisClient({
+        credentials: {client_email: 'bogus', private_key: 'bogus'},
+        projectId: 'bogus',
+      });
+      // Mock request
+      const request: protosTypes.google.cloud.redis.v1beta1.IListInstancesRequest = {};
+      // Mock response
+      const expectedResponse = {};
+      // Mock Grpc layer
+      client._innerApiCalls.listInstances = (
+        actualRequest: {},
+        options: {},
+        callback: Callback
+      ) => {
+        assert.deepStrictEqual(actualRequest, request);
+        callback(null, expectedResponse);
+      };
+      const stream = client
+        .listInstancesStream(request, {})
+        .on('data', (response: {}) => {
+          assert.deepStrictEqual(response, expectedResponse);
+          done();
+        })
+        .on('error', (err: FakeError) => {
+          done(err);
+        });
+      stream.write(request);
     });
   });
 });
