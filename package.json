@@ -29,7 +29,7 @@
   "scripts": {
     "test": "c8 mocha build/test",
     "samples-test": "cd samples/ && npm link ../ && npm install && npm test && cd ../",
-    "system-test": "mocha build/system-test",
+    "system-test": "c8 mocha build/system-test",
     "docs": "jsdoc -c .jsdoc.js",
     "lint": "gts fix && eslint samples/*.js samples/**/*.js",
     "fix": "gts fix && eslint --fix samples/*.js samples/**/*.js",
