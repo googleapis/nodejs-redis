@@ -481,6 +481,10 @@ export class CloudRedisClient {
    *   for more details and examples.
    * @example
    * const [response] = await client.getInstance(request);
+   *
+   * @example <caption>include:samples/generated/v1/cloud_redis.get_instance.js</caption>
+   * region_tag:redis_get_instance_sample
+   *
    */
   getInstance(
     request?: protos.google.cloud.redis.v1.IGetInstanceRequest,
@@ -601,6 +605,10 @@ export class CloudRedisClient {
    * @example
    * const [operation] = await client.createInstance(request);
    * const [response] = await operation.promise();
+   *
+   * @example <caption>include:samples/generated/v1/cloud_redis.create_instance.js</caption>
+   * region_tag:redis_create_instance_sample
+   *
    */
   createInstance(
     request?: protos.google.cloud.redis.v1.ICreateInstanceRequest,
@@ -664,6 +672,10 @@ export class CloudRedisClient {
    * console.log(decodedOperation.result);
    * console.log(decodedOperation.done);
    * console.log(decodedOperation.metadata);
+   *
+   * @example <caption>include:samples/generated/v1/cloud_redis.create_instance.js</caption>
+   * region_tag:redis_create_instance_sample
+   *
    */
   async checkCreateInstanceProgress(
     name: string
@@ -756,6 +768,10 @@ export class CloudRedisClient {
    * @example
    * const [operation] = await client.updateInstance(request);
    * const [response] = await operation.promise();
+   *
+   * @example <caption>include:samples/generated/v1/cloud_redis.update_instance.js</caption>
+   * region_tag:redis_update_instance_sample
+   *
    */
   updateInstance(
     request?: protos.google.cloud.redis.v1.IUpdateInstanceRequest,
@@ -819,6 +835,10 @@ export class CloudRedisClient {
    * console.log(decodedOperation.result);
    * console.log(decodedOperation.done);
    * console.log(decodedOperation.metadata);
+   *
+   * @example <caption>include:samples/generated/v1/cloud_redis.update_instance.js</caption>
+   * region_tag:redis_update_instance_sample
+   *
    */
   async checkUpdateInstanceProgress(
     name: string
@@ -902,6 +922,10 @@ export class CloudRedisClient {
    * @example
    * const [operation] = await client.upgradeInstance(request);
    * const [response] = await operation.promise();
+   *
+   * @example <caption>include:samples/generated/v1/cloud_redis.upgrade_instance.js</caption>
+   * region_tag:redis_upgrade_instance_sample
+   *
    */
   upgradeInstance(
     request?: protos.google.cloud.redis.v1.IUpgradeInstanceRequest,
@@ -965,6 +989,10 @@ export class CloudRedisClient {
    * console.log(decodedOperation.result);
    * console.log(decodedOperation.done);
    * console.log(decodedOperation.metadata);
+   *
+   * @example <caption>include:samples/generated/v1/cloud_redis.upgrade_instance.js</caption>
+   * region_tag:redis_upgrade_instance_sample
+   *
    */
   async checkUpgradeInstanceProgress(
     name: string
@@ -1054,6 +1082,10 @@ export class CloudRedisClient {
    * @example
    * const [operation] = await client.importInstance(request);
    * const [response] = await operation.promise();
+   *
+   * @example <caption>include:samples/generated/v1/cloud_redis.import_instance.js</caption>
+   * region_tag:redis_import_instance_sample
+   *
    */
   importInstance(
     request?: protos.google.cloud.redis.v1.IImportInstanceRequest,
@@ -1117,6 +1149,10 @@ export class CloudRedisClient {
    * console.log(decodedOperation.result);
    * console.log(decodedOperation.done);
    * console.log(decodedOperation.metadata);
+   *
+   * @example <caption>include:samples/generated/v1/cloud_redis.import_instance.js</caption>
+   * region_tag:redis_import_instance_sample
+   *
    */
   async checkImportInstanceProgress(
     name: string
@@ -1204,6 +1240,10 @@ export class CloudRedisClient {
    * @example
    * const [operation] = await client.exportInstance(request);
    * const [response] = await operation.promise();
+   *
+   * @example <caption>include:samples/generated/v1/cloud_redis.export_instance.js</caption>
+   * region_tag:redis_export_instance_sample
+   *
    */
   exportInstance(
     request?: protos.google.cloud.redis.v1.IExportInstanceRequest,
@@ -1267,6 +1307,10 @@ export class CloudRedisClient {
    * console.log(decodedOperation.result);
    * console.log(decodedOperation.done);
    * console.log(decodedOperation.metadata);
+   *
+   * @example <caption>include:samples/generated/v1/cloud_redis.export_instance.js</caption>
+   * region_tag:redis_export_instance_sample
+   *
    */
   async checkExportInstanceProgress(
     name: string
@@ -1351,6 +1395,10 @@ export class CloudRedisClient {
    * @example
    * const [operation] = await client.failoverInstance(request);
    * const [response] = await operation.promise();
+   *
+   * @example <caption>include:samples/generated/v1/cloud_redis.failover_instance.js</caption>
+   * region_tag:redis_failover_instance_sample
+   *
    */
   failoverInstance(
     request?: protos.google.cloud.redis.v1.IFailoverInstanceRequest,
@@ -1414,6 +1462,10 @@ export class CloudRedisClient {
    * console.log(decodedOperation.result);
    * console.log(decodedOperation.done);
    * console.log(decodedOperation.metadata);
+   *
+   * @example <caption>include:samples/generated/v1/cloud_redis.failover_instance.js</caption>
+   * region_tag:redis_failover_instance_sample
+   *
    */
   async checkFailoverInstanceProgress(
     name: string
@@ -1495,6 +1547,10 @@ export class CloudRedisClient {
    * @example
    * const [operation] = await client.deleteInstance(request);
    * const [response] = await operation.promise();
+   *
+   * @example <caption>include:samples/generated/v1/cloud_redis.delete_instance.js</caption>
+   * region_tag:redis_delete_instance_sample
+   *
    */
   deleteInstance(
     request?: protos.google.cloud.redis.v1.IDeleteInstanceRequest,
@@ -1558,6 +1614,10 @@ export class CloudRedisClient {
    * console.log(decodedOperation.result);
    * console.log(decodedOperation.done);
    * console.log(decodedOperation.metadata);
+   *
+   * @example <caption>include:samples/generated/v1/cloud_redis.delete_instance.js</caption>
+   * region_tag:redis_delete_instance_sample
+   *
    */
   async checkDeleteInstanceProgress(
     name: string
@@ -1648,6 +1708,10 @@ export class CloudRedisClient {
    *   Please see the
    *   [documentation](https://github.com/googleapis/gax-nodejs/blob/master/client-libraries.md#auto-pagination)
    *   for more details and examples.
+   *
+   * @example <caption>include:samples/generated/v1/cloud_redis.list_instances.js</caption>
+   * region_tag:redis_list_instances_sample
+   *
    */
   listInstances(
     request?: protos.google.cloud.redis.v1.IListInstancesRequest,
@@ -1721,6 +1785,10 @@ export class CloudRedisClient {
    *   Please see the
    *   [documentation](https://github.com/googleapis/gax-nodejs/blob/master/client-libraries.md#auto-pagination)
    *   for more details and examples.
+   *
+   * @example <caption>include:samples/generated/v1/cloud_redis.list_instances.js</caption>
+   * region_tag:redis_list_instances_sample
+   *
    */
   listInstancesStream(
     request?: protos.google.cloud.redis.v1.IListInstancesRequest,
@@ -1734,7 +1802,8 @@ export class CloudRedisClient {
       gax.routingHeader.fromParams({
         parent: request.parent || '',
       });
-    const callSettings = new gax.CallSettings(options);
+    const defaultCallSettings = this._defaults['listInstances'];
+    const callSettings = defaultCallSettings.merge(options);
     this.initialize();
     return this.descriptors.page.listInstances.createStream(
       this.innerApiCalls.listInstances as gax.GaxCall,
@@ -1779,6 +1848,10 @@ export class CloudRedisClient {
    * for await (const response of iterable) {
    *   // process response
    * }
+   *
+   * @example <caption>include:samples/generated/v1/cloud_redis.list_instances.js</caption>
+   * region_tag:redis_list_instances_sample
+   *
    */
   listInstancesAsync(
     request?: protos.google.cloud.redis.v1.IListInstancesRequest,
@@ -1793,7 +1866,8 @@ export class CloudRedisClient {
         parent: request.parent || '',
       });
     options = options || {};
-    const callSettings = new gax.CallSettings(options);
+    const defaultCallSettings = this._defaults['listInstances'];
+    const callSettings = defaultCallSettings.merge(options);
     this.initialize();
     return this.descriptors.page.listInstances.asyncIterate(
       this.innerApiCalls['listInstances'] as GaxCall,
