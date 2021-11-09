@@ -55,7 +55,7 @@ const version = require('../../../package.json').version;
  *  * As such, Redis instances are resources of the form:
  *    `/projects/{project_id}/locations/{location_id}/instances/{instance_id}`
  *
- *  Note that location_id must be refering to a GCP `region`; for example:
+ *  Note that location_id must be referring to a GCP `region`; for example:
  *  * `projects/redpepper-1290/locations/us-central1/instances/my-redis`
  * @class
  * @memberof v1beta1
@@ -568,7 +568,7 @@ export class CloudRedisClient {
    *
    * The creation is executed asynchronously and callers may check the returned
    * operation to track its progress. Once the operation is completed the Redis
-   * instance will be fully functional. Completed longrunning.Operation will
+   * instance will be fully functional. The completed longrunning.Operation will
    * contain the new instance object in the response field.
    *
    * The returned operation is automatically deleted after a few hours, so there
@@ -743,6 +743,7 @@ export class CloudRedisClient {
    *    *   `labels`
    *    *   `memorySizeGb`
    *    *   `redisConfig`
+   *    *   `replica_count`
    * @param {google.cloud.redis.v1beta1.Instance} request.instance
    *   Required. Update description.
    *   Only fields specified in update_mask are updated.
@@ -1329,7 +1330,7 @@ export class CloudRedisClient {
     >
   ): void;
   /**
-   * Initiates a failover of the master node to current replica node for a
+   * Initiates a failover of the primary node to current replica node for a
    * specific STANDARD tier Cloud Memorystore for Redis instance.
    *
    * @param {Object} request
@@ -1623,7 +1624,8 @@ export class CloudRedisClient {
    *   to determine if there are more instances left to be queried.
    * @param {string} request.pageToken
    *   The `next_page_token` value returned from a previous
-   *   {@link google.cloud.redis.v1beta1.CloudRedis.ListInstances|ListInstances} request, if any.
+   *   {@link google.cloud.redis.v1beta1.CloudRedis.ListInstances|ListInstances}
+   *   request, if any.
    * @param {object} [options]
    *   Call options. See {@link https://googleapis.dev/nodejs/google-gax/latest/interfaces/CallOptions.html|CallOptions} for more details.
    * @returns {Promise} - The promise which resolves to an array.
@@ -1699,7 +1701,8 @@ export class CloudRedisClient {
    *   to determine if there are more instances left to be queried.
    * @param {string} request.pageToken
    *   The `next_page_token` value returned from a previous
-   *   {@link google.cloud.redis.v1beta1.CloudRedis.ListInstances|ListInstances} request, if any.
+   *   {@link google.cloud.redis.v1beta1.CloudRedis.ListInstances|ListInstances}
+   *   request, if any.
    * @param {object} [options]
    *   Call options. See {@link https://googleapis.dev/nodejs/google-gax/latest/interfaces/CallOptions.html|CallOptions} for more details.
    * @returns {Stream}
@@ -1724,7 +1727,8 @@ export class CloudRedisClient {
       gax.routingHeader.fromParams({
         parent: request.parent || '',
       });
-    const callSettings = new gax.CallSettings(options);
+    const defaultCallSettings = this._defaults['listInstances'];
+    const callSettings = defaultCallSettings.merge(options);
     this.initialize();
     return this.descriptors.page.listInstances.createStream(
       this.innerApiCalls.listInstances as gax.GaxCall,
@@ -1753,7 +1757,8 @@ export class CloudRedisClient {
    *   to determine if there are more instances left to be queried.
    * @param {string} request.pageToken
    *   The `next_page_token` value returned from a previous
-   *   {@link google.cloud.redis.v1beta1.CloudRedis.ListInstances|ListInstances} request, if any.
+   *   {@link google.cloud.redis.v1beta1.CloudRedis.ListInstances|ListInstances}
+   *   request, if any.
    * @param {object} [options]
    *   Call options. See {@link https://googleapis.dev/nodejs/google-gax/latest/interfaces/CallOptions.html|CallOptions} for more details.
    * @returns {Object}
@@ -1783,7 +1788,8 @@ export class CloudRedisClient {
         parent: request.parent || '',
       });
     options = options || {};
-    const callSettings = new gax.CallSettings(options);
+    const defaultCallSettings = this._defaults['listInstances'];
+    const callSettings = defaultCallSettings.merge(options);
     this.initialize();
     return this.descriptors.page.listInstances.asyncIterate(
       this.innerApiCalls['listInstances'] as GaxCall,
