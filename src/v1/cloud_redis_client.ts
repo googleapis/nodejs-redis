@@ -344,6 +344,7 @@ export class CloudRedisClient {
     const cloudRedisStubMethods = [
       'listInstances',
       'getInstance',
+      'getInstanceAuthString',
       'createInstance',
       'updateInstance',
       'upgradeInstance',
@@ -520,6 +521,101 @@ export class CloudRedisClient {
       });
     this.initialize();
     return this.innerApiCalls.getInstance(request, options, callback);
+  }
+  /**
+   * Gets the AUTH string for a Redis instance. If AUTH is not enabled for the
+   * instance the response will be empty. This information is not included in
+   * the details returned to GetInstance.
+   *
+   * @param {Object} request
+   *   The request object that will be sent.
+   * @param {string} request.name
+   *   Required. Redis instance resource name using the form:
+   *       `projects/{project_id}/locations/{location_id}/instances/{instance_id}`
+   *   where `location_id` refers to a GCP region.
+   * @param {object} [options]
+   *   Call options. See {@link https://googleapis.dev/nodejs/google-gax/latest/interfaces/CallOptions.html|CallOptions} for more details.
+   * @returns {Promise} - The promise which resolves to an array.
+   *   The first element of the array is an object representing [InstanceAuthString]{@link google.cloud.redis.v1.InstanceAuthString}.
+   *   Please see the
+   *   [documentation](https://github.com/googleapis/gax-nodejs/blob/master/client-libraries.md#regular-methods)
+   *   for more details and examples.
+   * @example <caption>include:samples/generated/v1/cloud_redis.get_instance_auth_string.js</caption>
+   * region_tag:redis_v1_generated_CloudRedis_GetInstanceAuthString_async
+   */
+  getInstanceAuthString(
+    request?: protos.google.cloud.redis.v1.IGetInstanceAuthStringRequest,
+    options?: CallOptions
+  ): Promise<
+    [
+      protos.google.cloud.redis.v1.IInstanceAuthString,
+      protos.google.cloud.redis.v1.IGetInstanceAuthStringRequest | undefined,
+      {} | undefined
+    ]
+  >;
+  getInstanceAuthString(
+    request: protos.google.cloud.redis.v1.IGetInstanceAuthStringRequest,
+    options: CallOptions,
+    callback: Callback<
+      protos.google.cloud.redis.v1.IInstanceAuthString,
+      | protos.google.cloud.redis.v1.IGetInstanceAuthStringRequest
+      | null
+      | undefined,
+      {} | null | undefined
+    >
+  ): void;
+  getInstanceAuthString(
+    request: protos.google.cloud.redis.v1.IGetInstanceAuthStringRequest,
+    callback: Callback<
+      protos.google.cloud.redis.v1.IInstanceAuthString,
+      | protos.google.cloud.redis.v1.IGetInstanceAuthStringRequest
+      | null
+      | undefined,
+      {} | null | undefined
+    >
+  ): void;
+  getInstanceAuthString(
+    request?: protos.google.cloud.redis.v1.IGetInstanceAuthStringRequest,
+    optionsOrCallback?:
+      | CallOptions
+      | Callback<
+          protos.google.cloud.redis.v1.IInstanceAuthString,
+          | protos.google.cloud.redis.v1.IGetInstanceAuthStringRequest
+          | null
+          | undefined,
+          {} | null | undefined
+        >,
+    callback?: Callback<
+      protos.google.cloud.redis.v1.IInstanceAuthString,
+      | protos.google.cloud.redis.v1.IGetInstanceAuthStringRequest
+      | null
+      | undefined,
+      {} | null | undefined
+    >
+  ): Promise<
+    [
+      protos.google.cloud.redis.v1.IInstanceAuthString,
+      protos.google.cloud.redis.v1.IGetInstanceAuthStringRequest | undefined,
+      {} | undefined
+    ]
+  > | void {
+    request = request || {};
+    let options: CallOptions;
+    if (typeof optionsOrCallback === 'function' && callback === undefined) {
+      callback = optionsOrCallback;
+      options = {};
+    } else {
+      options = optionsOrCallback as CallOptions;
+    }
+    options = options || {};
+    options.otherArgs = options.otherArgs || {};
+    options.otherArgs.headers = options.otherArgs.headers || {};
+    options.otherArgs.headers['x-goog-request-params'] =
+      gax.routingHeader.fromParams({
+        name: request.name || '',
+      });
+    this.initialize();
+    return this.innerApiCalls.getInstanceAuthString(request, options, callback);
   }
 
   /**

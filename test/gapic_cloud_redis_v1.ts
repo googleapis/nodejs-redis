@@ -367,6 +367,140 @@ describe('v1.CloudRedisClient', () => {
     });
   });
 
+  describe('getInstanceAuthString', () => {
+    it('invokes getInstanceAuthString without error', async () => {
+      const client = new cloudredisModule.v1.CloudRedisClient({
+        credentials: {client_email: 'bogus', private_key: 'bogus'},
+        projectId: 'bogus',
+      });
+      client.initialize();
+      const request = generateSampleMessage(
+        new protos.google.cloud.redis.v1.GetInstanceAuthStringRequest()
+      );
+      request.name = '';
+      const expectedHeaderRequestParams = 'name=';
+      const expectedOptions = {
+        otherArgs: {
+          headers: {
+            'x-goog-request-params': expectedHeaderRequestParams,
+          },
+        },
+      };
+      const expectedResponse = generateSampleMessage(
+        new protos.google.cloud.redis.v1.InstanceAuthString()
+      );
+      client.innerApiCalls.getInstanceAuthString =
+        stubSimpleCall(expectedResponse);
+      const [response] = await client.getInstanceAuthString(request);
+      assert.deepStrictEqual(response, expectedResponse);
+      assert(
+        (client.innerApiCalls.getInstanceAuthString as SinonStub)
+          .getCall(0)
+          .calledWith(request, expectedOptions, undefined)
+      );
+    });
+
+    it('invokes getInstanceAuthString without error using callback', async () => {
+      const client = new cloudredisModule.v1.CloudRedisClient({
+        credentials: {client_email: 'bogus', private_key: 'bogus'},
+        projectId: 'bogus',
+      });
+      client.initialize();
+      const request = generateSampleMessage(
+        new protos.google.cloud.redis.v1.GetInstanceAuthStringRequest()
+      );
+      request.name = '';
+      const expectedHeaderRequestParams = 'name=';
+      const expectedOptions = {
+        otherArgs: {
+          headers: {
+            'x-goog-request-params': expectedHeaderRequestParams,
+          },
+        },
+      };
+      const expectedResponse = generateSampleMessage(
+        new protos.google.cloud.redis.v1.InstanceAuthString()
+      );
+      client.innerApiCalls.getInstanceAuthString =
+        stubSimpleCallWithCallback(expectedResponse);
+      const promise = new Promise((resolve, reject) => {
+        client.getInstanceAuthString(
+          request,
+          (
+            err?: Error | null,
+            result?: protos.google.cloud.redis.v1.IInstanceAuthString | null
+          ) => {
+            if (err) {
+              reject(err);
+            } else {
+              resolve(result);
+            }
+          }
+        );
+      });
+      const response = await promise;
+      assert.deepStrictEqual(response, expectedResponse);
+      assert(
+        (client.innerApiCalls.getInstanceAuthString as SinonStub)
+          .getCall(0)
+          .calledWith(request, expectedOptions /*, callback defined above */)
+      );
+    });
+
+    it('invokes getInstanceAuthString with error', async () => {
+      const client = new cloudredisModule.v1.CloudRedisClient({
+        credentials: {client_email: 'bogus', private_key: 'bogus'},
+        projectId: 'bogus',
+      });
+      client.initialize();
+      const request = generateSampleMessage(
+        new protos.google.cloud.redis.v1.GetInstanceAuthStringRequest()
+      );
+      request.name = '';
+      const expectedHeaderRequestParams = 'name=';
+      const expectedOptions = {
+        otherArgs: {
+          headers: {
+            'x-goog-request-params': expectedHeaderRequestParams,
+          },
+        },
+      };
+      const expectedError = new Error('expected');
+      client.innerApiCalls.getInstanceAuthString = stubSimpleCall(
+        undefined,
+        expectedError
+      );
+      await assert.rejects(
+        client.getInstanceAuthString(request),
+        expectedError
+      );
+      assert(
+        (client.innerApiCalls.getInstanceAuthString as SinonStub)
+          .getCall(0)
+          .calledWith(request, expectedOptions, undefined)
+      );
+    });
+
+    it('invokes getInstanceAuthString with closed client', async () => {
+      const client = new cloudredisModule.v1.CloudRedisClient({
+        credentials: {client_email: 'bogus', private_key: 'bogus'},
+        projectId: 'bogus',
+      });
+      client.initialize();
+      const request = generateSampleMessage(
+        new protos.google.cloud.redis.v1.GetInstanceAuthStringRequest()
+      );
+      request.name = '';
+      const expectedHeaderRequestParams = 'name=';
+      const expectedError = new Error('The client has already been closed.');
+      client.close();
+      await assert.rejects(
+        client.getInstanceAuthString(request),
+        expectedError
+      );
+    });
+  });
+
   describe('createInstance', () => {
     it('invokes createInstance without error', async () => {
       const client = new cloudredisModule.v1.CloudRedisClient({

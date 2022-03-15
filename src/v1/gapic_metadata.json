@@ -15,6 +15,11 @@
                 "getInstance"
               ]
             },
+            "GetInstanceAuthString": {
+              "methods": [
+                "getInstanceAuthString"
+              ]
+            },
             "CreateInstance": {
               "methods": [
                 "createInstance"
@@ -65,6 +70,11 @@
             "GetInstance": {
               "methods": [
                 "getInstance"
+              ]
+            },
+            "GetInstanceAuthString": {
+              "methods": [
+                "getInstanceAuthString"
               ]
             },
             "CreateInstance": {

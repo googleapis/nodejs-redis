@@ -56,6 +56,24 @@
                             }
                           ]
                         },
+                        "GetInstanceAuthString": {
+                          "requestType": "GetInstanceAuthStringRequest",
+                          "responseType": "InstanceAuthString",
+                          "options": {
+                            "(google.api.http).get": "/v1/{name=projects/*/locations/*/instances/*}/authString",
+                            "(google.api.method_signature)": "name"
+                          },
+                          "parsedOptions": [
+                            {
+                              "(google.api.http)": {
+                                "get": "/v1/{name=projects/*/locations/*/instances/*}/authString"
+                              }
+                            },
+                            {
+                              "(google.api.method_signature)": "name"
+                            }
+                          ]
+                        },
                         "CreateInstance": {
                           "requestType": "CreateInstanceRequest",
                           "responseType": "google.longrunning.Operation",
@@ -320,6 +338,13 @@
                             "(google.api.field_behavior)": "OPTIONAL"
                           }
                         },
+                        "secondaryIpRange": {
+                          "type": "string",
+                          "id": 30,
+                          "options": {
+                            "(google.api.field_behavior)": "OPTIONAL"
+                          }
+                        },
                         "host": {
                           "type": "string",
                           "id": 10,
@@ -405,6 +430,28 @@
                             "(google.api.field_behavior)": "OPTIONAL"
                           }
                         },
+                        "authEnabled": {
+                          "type": "bool",
+                          "id": 23,
+                          "options": {
+                            "(google.api.field_behavior)": "OPTIONAL"
+                          }
+                        },
+                        "serverCaCerts": {
+                          "rule": "repeated",
+                          "type": "TlsCertificate",
+                          "id": 25,
+                          "options": {
+                            "(google.api.field_behavior)": "OUTPUT_ONLY"
+                          }
+                        },
+                        "transitEncryptionMode": {
+                          "type": "TransitEncryptionMode",
+                          "id": 26,
+                          "options": {
+                            "(google.api.field_behavior)": "OPTIONAL"
+                          }
+                        },
                         "replicaCount": {
                           "type": "int32",
                           "id": 31,
@@ -470,6 +517,13 @@
                             "PRIVATE_SERVICE_ACCESS": 2
                           }
                         },
+                        "TransitEncryptionMode": {
+                          "values": {
+                            "TRANSIT_ENCRYPTION_MODE_UNSPECIFIED": 0,
+                            "SERVER_AUTHENTICATION": 1,
+                            "DISABLED": 2
+                          }
+                        },
                         "ReadReplicasMode": {
                           "values": {
                             "READ_REPLICAS_MODE_UNSPECIFIED": 0,
@@ -526,6 +580,26 @@
                             "(google.api.field_behavior)": "REQUIRED",
                             "(google.api.resource_reference).type": "redis.googleapis.com/Instance"
                           }
+                        }
+                      }
+                    },
+                    "GetInstanceAuthStringRequest": {
+                      "fields": {
+                        "name": {
+                          "type": "string",
+                          "id": 1,
+                          "options": {
+                            "(google.api.field_behavior)": "REQUIRED",
+                            "(google.api.resource_reference).type": "redis.googleapis.com/Instance"
+                          }
+                        }
+                      }
+                    },
+                    "InstanceAuthString": {
+                      "fields": {
+                        "authString": {
+                          "type": "string",
+                          "id": 1
                         }
                       }
                     },
@@ -766,6 +840,36 @@
                     },
                     "ZoneMetadata": {
                       "fields": {}
+                    },
+                    "TlsCertificate": {
+                      "fields": {
+                        "serialNumber": {
+                          "type": "string",
+                          "id": 1
+                        },
+                        "cert": {
+                          "type": "string",
+                          "id": 2
+                        },
+                        "createTime": {
+                          "type": "google.protobuf.Timestamp",
+                          "id": 3,
+                          "options": {
+                            "(google.api.field_behavior)": "OUTPUT_ONLY"
+                          }
+                        },
+                        "expireTime": {
+                          "type": "google.protobuf.Timestamp",
+                          "id": 4,
+                          "options": {
+                            "(google.api.field_behavior)": "OUTPUT_ONLY"
+                          }
+                        },
+                        "sha1Fingerprint": {
+                          "type": "string",
+                          "id": 5
+                        }
+                      }
                     }
                   }
                 },
