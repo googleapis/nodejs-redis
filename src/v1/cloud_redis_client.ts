@@ -253,6 +253,12 @@ export class CloudRedisClient {
     const deleteInstanceMetadata = protoFilesRoot.lookup(
       '.google.cloud.redis.v1.OperationMetadata'
     ) as gax.protobuf.Type;
+    const rescheduleMaintenanceResponse = protoFilesRoot.lookup(
+      '.google.cloud.redis.v1.Instance'
+    ) as gax.protobuf.Type;
+    const rescheduleMaintenanceMetadata = protoFilesRoot.lookup(
+      '.google.cloud.redis.v1.OperationMetadata'
+    ) as gax.protobuf.Type;
 
     this.descriptors.longrunning = {
       createInstance: new this._gaxModule.LongrunningDescriptor(
@@ -289,6 +295,13 @@ export class CloudRedisClient {
         this.operationsClient,
         deleteInstanceResponse.decode.bind(deleteInstanceResponse),
         deleteInstanceMetadata.decode.bind(deleteInstanceMetadata)
+      ),
+      rescheduleMaintenance: new this._gaxModule.LongrunningDescriptor(
+        this.operationsClient,
+        rescheduleMaintenanceResponse.decode.bind(
+          rescheduleMaintenanceResponse
+        ),
+        rescheduleMaintenanceMetadata.decode.bind(rescheduleMaintenanceMetadata)
       ),
     };
 
@@ -352,6 +365,7 @@ export class CloudRedisClient {
       'exportInstance',
       'failoverInstance',
       'deleteInstance',
+      'rescheduleMaintenance',
     ];
     for (const methodName of cloudRedisStubMethods) {
       const callPromise = this.cloudRedisStub.then(
@@ -1647,6 +1661,152 @@ export class CloudRedisClient {
     );
     return decodeOperation as LROperation<
       protos.google.protobuf.Empty,
+      protos.google.cloud.redis.v1.OperationMetadata
+    >;
+  }
+  /**
+   * Reschedule maintenance for a given instance in a given project and
+   * location.
+   *
+   * @param {Object} request
+   *   The request object that will be sent.
+   * @param {string} request.name
+   *   Required. Redis instance resource name using the form:
+   *       `projects/{project_id}/locations/{location_id}/instances/{instance_id}`
+   *   where `location_id` refers to a GCP region.
+   * @param {google.cloud.redis.v1.RescheduleMaintenanceRequest.RescheduleType} request.rescheduleType
+   *   Required. If reschedule type is SPECIFIC_TIME, must set up schedule_time as well.
+   * @param {google.protobuf.Timestamp} [request.scheduleTime]
+   *   Optional. Timestamp when the maintenance shall be rescheduled to if
+   *   reschedule_type=SPECIFIC_TIME, in RFC 3339 format, for
+   *   example `2012-11-15T16:19:00.094Z`.
+   * @param {object} [options]
+   *   Call options. See {@link https://googleapis.dev/nodejs/google-gax/latest/interfaces/CallOptions.html|CallOptions} for more details.
+   * @returns {Promise} - The promise which resolves to an array.
+   *   The first element of the array is an object representing
+   *   a long running operation. Its `promise()` method returns a promise
+   *   you can `await` for.
+   *   Please see the
+   *   [documentation](https://github.com/googleapis/gax-nodejs/blob/master/client-libraries.md#long-running-operations)
+   *   for more details and examples.
+   * @example <caption>include:samples/generated/v1/cloud_redis.reschedule_maintenance.js</caption>
+   * region_tag:redis_v1_generated_CloudRedis_RescheduleMaintenance_async
+   */
+  rescheduleMaintenance(
+    request?: protos.google.cloud.redis.v1.IRescheduleMaintenanceRequest,
+    options?: CallOptions
+  ): Promise<
+    [
+      LROperation<
+        protos.google.cloud.redis.v1.IInstance,
+        protos.google.cloud.redis.v1.IOperationMetadata
+      >,
+      protos.google.longrunning.IOperation | undefined,
+      {} | undefined
+    ]
+  >;
+  rescheduleMaintenance(
+    request: protos.google.cloud.redis.v1.IRescheduleMaintenanceRequest,
+    options: CallOptions,
+    callback: Callback<
+      LROperation<
+        protos.google.cloud.redis.v1.IInstance,
+        protos.google.cloud.redis.v1.IOperationMetadata
+      >,
+      protos.google.longrunning.IOperation | null | undefined,
+      {} | null | undefined
+    >
+  ): void;
+  rescheduleMaintenance(
+    request: protos.google.cloud.redis.v1.IRescheduleMaintenanceRequest,
+    callback: Callback<
+      LROperation<
+        protos.google.cloud.redis.v1.IInstance,
+        protos.google.cloud.redis.v1.IOperationMetadata
+      >,
+      protos.google.longrunning.IOperation | null | undefined,
+      {} | null | undefined
+    >
+  ): void;
+  rescheduleMaintenance(
+    request?: protos.google.cloud.redis.v1.IRescheduleMaintenanceRequest,
+    optionsOrCallback?:
+      | CallOptions
+      | Callback<
+          LROperation<
+            protos.google.cloud.redis.v1.IInstance,
+            protos.google.cloud.redis.v1.IOperationMetadata
+          >,
+          protos.google.longrunning.IOperation | null | undefined,
+          {} | null | undefined
+        >,
+    callback?: Callback<
+      LROperation<
+        protos.google.cloud.redis.v1.IInstance,
+        protos.google.cloud.redis.v1.IOperationMetadata
+      >,
+      protos.google.longrunning.IOperation | null | undefined,
+      {} | null | undefined
+    >
+  ): Promise<
+    [
+      LROperation<
+        protos.google.cloud.redis.v1.IInstance,
+        protos.google.cloud.redis.v1.IOperationMetadata
+      >,
+      protos.google.longrunning.IOperation | undefined,
+      {} | undefined
+    ]
+  > | void {
+    request = request || {};
+    let options: CallOptions;
+    if (typeof optionsOrCallback === 'function' && callback === undefined) {
+      callback = optionsOrCallback;
+      options = {};
+    } else {
+      options = optionsOrCallback as CallOptions;
+    }
+    options = options || {};
+    options.otherArgs = options.otherArgs || {};
+    options.otherArgs.headers = options.otherArgs.headers || {};
+    options.otherArgs.headers['x-goog-request-params'] =
+      gax.routingHeader.fromParams({
+        name: request.name || '',
+      });
+    this.initialize();
+    return this.innerApiCalls.rescheduleMaintenance(request, options, callback);
+  }
+  /**
+   * Check the status of the long running operation returned by `rescheduleMaintenance()`.
+   * @param {String} name
+   *   The operation name that will be passed.
+   * @returns {Promise} - The promise which resolves to an object.
+   *   The decoded operation object has result and metadata field to get information from.
+   *   Please see the
+   *   [documentation](https://github.com/googleapis/gax-nodejs/blob/master/client-libraries.md#long-running-operations)
+   *   for more details and examples.
+   * @example <caption>include:samples/generated/v1/cloud_redis.reschedule_maintenance.js</caption>
+   * region_tag:redis_v1_generated_CloudRedis_RescheduleMaintenance_async
+   */
+  async checkRescheduleMaintenanceProgress(
+    name: string
+  ): Promise<
+    LROperation<
+      protos.google.cloud.redis.v1.Instance,
+      protos.google.cloud.redis.v1.OperationMetadata
+    >
+  > {
+    const request = new operationsProtos.google.longrunning.GetOperationRequest(
+      {name}
+    );
+    const [operation] = await this.operationsClient.getOperation(request);
+    const decodeOperation = new gax.Operation(
+      operation,
+      this.descriptors.longrunning.rescheduleMaintenance,
+      gax.createDefaultBackoffSettings()
+    );
+    return decodeOperation as LROperation<
+      protos.google.cloud.redis.v1.Instance,
       protos.google.cloud.redis.v1.OperationMetadata
     >;
   }

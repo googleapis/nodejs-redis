@@ -185,6 +185,20 @@ export namespace google {
                      * @returns Promise
                      */
                     public deleteInstance(request: google.cloud.redis.v1.IDeleteInstanceRequest): Promise<google.longrunning.Operation>;
+
+                    /**
+                     * Calls RescheduleMaintenance.
+                     * @param request RescheduleMaintenanceRequest message or plain object
+                     * @param callback Node-style callback called with the error, if any, and Operation
+                     */
+                    public rescheduleMaintenance(request: google.cloud.redis.v1.IRescheduleMaintenanceRequest, callback: google.cloud.redis.v1.CloudRedis.RescheduleMaintenanceCallback): void;
+
+                    /**
+                     * Calls RescheduleMaintenance.
+                     * @param request RescheduleMaintenanceRequest message or plain object
+                     * @returns Promise
+                     */
+                    public rescheduleMaintenance(request: google.cloud.redis.v1.IRescheduleMaintenanceRequest): Promise<google.longrunning.Operation>;
                 }
 
                 namespace CloudRedis {
@@ -258,6 +272,13 @@ export namespace google {
                      * @param [response] Operation
                      */
                     type DeleteInstanceCallback = (error: (Error|null), response?: google.longrunning.Operation) => void;
+
+                    /**
+                     * Callback as used by {@link google.cloud.redis.v1.CloudRedis#rescheduleMaintenance}.
+                     * @param error Error, if any
+                     * @param [response] Operation
+                     */
+                    type RescheduleMaintenanceCallback = (error: (Error|null), response?: google.longrunning.Operation) => void;
                 }
 
                 /** Properties of a NodeInfo. */
@@ -428,6 +449,12 @@ export namespace google {
                     /** Instance transitEncryptionMode */
                     transitEncryptionMode?: (google.cloud.redis.v1.Instance.TransitEncryptionMode|keyof typeof google.cloud.redis.v1.Instance.TransitEncryptionMode|null);
 
+                    /** Instance maintenancePolicy */
+                    maintenancePolicy?: (google.cloud.redis.v1.IMaintenancePolicy|null);
+
+                    /** Instance maintenanceSchedule */
+                    maintenanceSchedule?: (google.cloud.redis.v1.IMaintenanceSchedule|null);
+
                     /** Instance replicaCount */
                     replicaCount?: (number|null);
 
@@ -521,6 +548,12 @@ export namespace google {
 
                     /** Instance transitEncryptionMode. */
                     public transitEncryptionMode: (google.cloud.redis.v1.Instance.TransitEncryptionMode|keyof typeof google.cloud.redis.v1.Instance.TransitEncryptionMode);
+
+                    /** Instance maintenancePolicy. */
+                    public maintenancePolicy?: (google.cloud.redis.v1.IMaintenancePolicy|null);
+
+                    /** Instance maintenanceSchedule. */
+                    public maintenanceSchedule?: (google.cloud.redis.v1.IMaintenanceSchedule|null);
 
                     /** Instance replicaCount. */
                     public replicaCount: number;
@@ -650,6 +683,437 @@ export namespace google {
                         READ_REPLICAS_DISABLED = 1,
                         READ_REPLICAS_ENABLED = 2
                     }
+                }
+
+                /** Properties of a RescheduleMaintenanceRequest. */
+                interface IRescheduleMaintenanceRequest {
+
+                    /** RescheduleMaintenanceRequest name */
+                    name?: (string|null);
+
+                    /** RescheduleMaintenanceRequest rescheduleType */
+                    rescheduleType?: (google.cloud.redis.v1.RescheduleMaintenanceRequest.RescheduleType|keyof typeof google.cloud.redis.v1.RescheduleMaintenanceRequest.RescheduleType|null);
+
+                    /** RescheduleMaintenanceRequest scheduleTime */
+                    scheduleTime?: (google.protobuf.ITimestamp|null);
+                }
+
+                /** Represents a RescheduleMaintenanceRequest. */
+                class RescheduleMaintenanceRequest implements IRescheduleMaintenanceRequest {
+
+                    /**
+                     * Constructs a new RescheduleMaintenanceRequest.
+                     * @param [properties] Properties to set
+                     */
+                    constructor(properties?: google.cloud.redis.v1.IRescheduleMaintenanceRequest);
+
+                    /** RescheduleMaintenanceRequest name. */
+                    public name: string;
+
+                    /** RescheduleMaintenanceRequest rescheduleType. */
+                    public rescheduleType: (google.cloud.redis.v1.RescheduleMaintenanceRequest.RescheduleType|keyof typeof google.cloud.redis.v1.RescheduleMaintenanceRequest.RescheduleType);
+
+                    /** RescheduleMaintenanceRequest scheduleTime. */
+                    public scheduleTime?: (google.protobuf.ITimestamp|null);
+
+                    /**
+                     * Creates a new RescheduleMaintenanceRequest instance using the specified properties.
+                     * @param [properties] Properties to set
+                     * @returns RescheduleMaintenanceRequest instance
+                     */
+                    public static create(properties?: google.cloud.redis.v1.IRescheduleMaintenanceRequest): google.cloud.redis.v1.RescheduleMaintenanceRequest;
+
+                    /**
+                     * Encodes the specified RescheduleMaintenanceRequest message. Does not implicitly {@link google.cloud.redis.v1.RescheduleMaintenanceRequest.verify|verify} messages.
+                     * @param message RescheduleMaintenanceRequest message or plain object to encode
+                     * @param [writer] Writer to encode to
+                     * @returns Writer
+                     */
+                    public static encode(message: google.cloud.redis.v1.IRescheduleMaintenanceRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                    /**
+                     * Encodes the specified RescheduleMaintenanceRequest message, length delimited. Does not implicitly {@link google.cloud.redis.v1.RescheduleMaintenanceRequest.verify|verify} messages.
+                     * @param message RescheduleMaintenanceRequest message or plain object to encode
+                     * @param [writer] Writer to encode to
+                     * @returns Writer
+                     */
+                    public static encodeDelimited(message: google.cloud.redis.v1.IRescheduleMaintenanceRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                    /**
+                     * Decodes a RescheduleMaintenanceRequest message from the specified reader or buffer.
+                     * @param reader Reader or buffer to decode from
+                     * @param [length] Message length if known beforehand
+                     * @returns RescheduleMaintenanceRequest
+                     * @throws {Error} If the payload is not a reader or valid buffer
+                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                     */
+                    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): google.cloud.redis.v1.RescheduleMaintenanceRequest;
+
+                    /**
+                     * Decodes a RescheduleMaintenanceRequest message from the specified reader or buffer, length delimited.
+                     * @param reader Reader or buffer to decode from
+                     * @returns RescheduleMaintenanceRequest
+                     * @throws {Error} If the payload is not a reader or valid buffer
+                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                     */
+                    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): google.cloud.redis.v1.RescheduleMaintenanceRequest;
+
+                    /**
+                     * Verifies a RescheduleMaintenanceRequest message.
+                     * @param message Plain object to verify
+                     * @returns `null` if valid, otherwise the reason why it is not
+                     */
+                    public static verify(message: { [k: string]: any }): (string|null);
+
+                    /**
+                     * Creates a RescheduleMaintenanceRequest message from a plain object. Also converts values to their respective internal types.
+                     * @param object Plain object
+                     * @returns RescheduleMaintenanceRequest
+                     */
+                    public static fromObject(object: { [k: string]: any }): google.cloud.redis.v1.RescheduleMaintenanceRequest;
+
+                    /**
+                     * Creates a plain object from a RescheduleMaintenanceRequest message. Also converts values to other types if specified.
+                     * @param message RescheduleMaintenanceRequest
+                     * @param [options] Conversion options
+                     * @returns Plain object
+                     */
+                    public static toObject(message: google.cloud.redis.v1.RescheduleMaintenanceRequest, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+                    /**
+                     * Converts this RescheduleMaintenanceRequest to JSON.
+                     * @returns JSON object
+                     */
+                    public toJSON(): { [k: string]: any };
+                }
+
+                namespace RescheduleMaintenanceRequest {
+
+                    /** RescheduleType enum. */
+                    enum RescheduleType {
+                        RESCHEDULE_TYPE_UNSPECIFIED = 0,
+                        IMMEDIATE = 1,
+                        NEXT_AVAILABLE_WINDOW = 2,
+                        SPECIFIC_TIME = 3
+                    }
+                }
+
+                /** Properties of a MaintenancePolicy. */
+                interface IMaintenancePolicy {
+
+                    /** MaintenancePolicy createTime */
+                    createTime?: (google.protobuf.ITimestamp|null);
+
+                    /** MaintenancePolicy updateTime */
+                    updateTime?: (google.protobuf.ITimestamp|null);
+
+                    /** MaintenancePolicy description */
+                    description?: (string|null);
+
+                    /** MaintenancePolicy weeklyMaintenanceWindow */
+                    weeklyMaintenanceWindow?: (google.cloud.redis.v1.IWeeklyMaintenanceWindow[]|null);
+                }
+
+                /** Represents a MaintenancePolicy. */
+                class MaintenancePolicy implements IMaintenancePolicy {
+
+                    /**
+                     * Constructs a new MaintenancePolicy.
+                     * @param [properties] Properties to set
+                     */
+                    constructor(properties?: google.cloud.redis.v1.IMaintenancePolicy);
+
+                    /** MaintenancePolicy createTime. */
+                    public createTime?: (google.protobuf.ITimestamp|null);
+
+                    /** MaintenancePolicy updateTime. */
+                    public updateTime?: (google.protobuf.ITimestamp|null);
+
+                    /** MaintenancePolicy description. */
+                    public description: string;
+
+                    /** MaintenancePolicy weeklyMaintenanceWindow. */
+                    public weeklyMaintenanceWindow: google.cloud.redis.v1.IWeeklyMaintenanceWindow[];
+
+                    /**
+                     * Creates a new MaintenancePolicy instance using the specified properties.
+                     * @param [properties] Properties to set
+                     * @returns MaintenancePolicy instance
+                     */
+                    public static create(properties?: google.cloud.redis.v1.IMaintenancePolicy): google.cloud.redis.v1.MaintenancePolicy;
+
+                    /**
+                     * Encodes the specified MaintenancePolicy message. Does not implicitly {@link google.cloud.redis.v1.MaintenancePolicy.verify|verify} messages.
+                     * @param message MaintenancePolicy message or plain object to encode
+                     * @param [writer] Writer to encode to
+                     * @returns Writer
+                     */
+                    public static encode(message: google.cloud.redis.v1.IMaintenancePolicy, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                    /**
+                     * Encodes the specified MaintenancePolicy message, length delimited. Does not implicitly {@link google.cloud.redis.v1.MaintenancePolicy.verify|verify} messages.
+                     * @param message MaintenancePolicy message or plain object to encode
+                     * @param [writer] Writer to encode to
+                     * @returns Writer
+                     */
+                    public static encodeDelimited(message: google.cloud.redis.v1.IMaintenancePolicy, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                    /**
+                     * Decodes a MaintenancePolicy message from the specified reader or buffer.
+                     * @param reader Reader or buffer to decode from
+                     * @param [length] Message length if known beforehand
+                     * @returns MaintenancePolicy
+                     * @throws {Error} If the payload is not a reader or valid buffer
+                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                     */
+                    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): google.cloud.redis.v1.MaintenancePolicy;
+
+                    /**
+                     * Decodes a MaintenancePolicy message from the specified reader or buffer, length delimited.
+                     * @param reader Reader or buffer to decode from
+                     * @returns MaintenancePolicy
+                     * @throws {Error} If the payload is not a reader or valid buffer
+                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                     */
+                    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): google.cloud.redis.v1.MaintenancePolicy;
+
+                    /**
+                     * Verifies a MaintenancePolicy message.
+                     * @param message Plain object to verify
+                     * @returns `null` if valid, otherwise the reason why it is not
+                     */
+                    public static verify(message: { [k: string]: any }): (string|null);
+
+                    /**
+                     * Creates a MaintenancePolicy message from a plain object. Also converts values to their respective internal types.
+                     * @param object Plain object
+                     * @returns MaintenancePolicy
+                     */
+                    public static fromObject(object: { [k: string]: any }): google.cloud.redis.v1.MaintenancePolicy;
+
+                    /**
+                     * Creates a plain object from a MaintenancePolicy message. Also converts values to other types if specified.
+                     * @param message MaintenancePolicy
+                     * @param [options] Conversion options
+                     * @returns Plain object
+                     */
+                    public static toObject(message: google.cloud.redis.v1.MaintenancePolicy, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+                    /**
+                     * Converts this MaintenancePolicy to JSON.
+                     * @returns JSON object
+                     */
+                    public toJSON(): { [k: string]: any };
+                }
+
+                /** Properties of a WeeklyMaintenanceWindow. */
+                interface IWeeklyMaintenanceWindow {
+
+                    /** WeeklyMaintenanceWindow day */
+                    day?: (google.type.DayOfWeek|keyof typeof google.type.DayOfWeek|null);
+
+                    /** WeeklyMaintenanceWindow startTime */
+                    startTime?: (google.type.ITimeOfDay|null);
+
+                    /** WeeklyMaintenanceWindow duration */
+                    duration?: (google.protobuf.IDuration|null);
+                }
+
+                /** Represents a WeeklyMaintenanceWindow. */
+                class WeeklyMaintenanceWindow implements IWeeklyMaintenanceWindow {
+
+                    /**
+                     * Constructs a new WeeklyMaintenanceWindow.
+                     * @param [properties] Properties to set
+                     */
+                    constructor(properties?: google.cloud.redis.v1.IWeeklyMaintenanceWindow);
+
+                    /** WeeklyMaintenanceWindow day. */
+                    public day: (google.type.DayOfWeek|keyof typeof google.type.DayOfWeek);
+
+                    /** WeeklyMaintenanceWindow startTime. */
+                    public startTime?: (google.type.ITimeOfDay|null);
+
+                    /** WeeklyMaintenanceWindow duration. */
+                    public duration?: (google.protobuf.IDuration|null);
+
+                    /**
+                     * Creates a new WeeklyMaintenanceWindow instance using the specified properties.
+                     * @param [properties] Properties to set
+                     * @returns WeeklyMaintenanceWindow instance
+                     */
+                    public static create(properties?: google.cloud.redis.v1.IWeeklyMaintenanceWindow): google.cloud.redis.v1.WeeklyMaintenanceWindow;
+
+                    /**
+                     * Encodes the specified WeeklyMaintenanceWindow message. Does not implicitly {@link google.cloud.redis.v1.WeeklyMaintenanceWindow.verify|verify} messages.
+                     * @param message WeeklyMaintenanceWindow message or plain object to encode
+                     * @param [writer] Writer to encode to
+                     * @returns Writer
+                     */
+                    public static encode(message: google.cloud.redis.v1.IWeeklyMaintenanceWindow, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                    /**
+                     * Encodes the specified WeeklyMaintenanceWindow message, length delimited. Does not implicitly {@link google.cloud.redis.v1.WeeklyMaintenanceWindow.verify|verify} messages.
+                     * @param message WeeklyMaintenanceWindow message or plain object to encode
+                     * @param [writer] Writer to encode to
+                     * @returns Writer
+                     */
+                    public static encodeDelimited(message: google.cloud.redis.v1.IWeeklyMaintenanceWindow, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                    /**
+                     * Decodes a WeeklyMaintenanceWindow message from the specified reader or buffer.
+                     * @param reader Reader or buffer to decode from
+                     * @param [length] Message length if known beforehand
+                     * @returns WeeklyMaintenanceWindow
+                     * @throws {Error} If the payload is not a reader or valid buffer
+                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                     */
+                    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): google.cloud.redis.v1.WeeklyMaintenanceWindow;
+
+                    /**
+                     * Decodes a WeeklyMaintenanceWindow message from the specified reader or buffer, length delimited.
+                     * @param reader Reader or buffer to decode from
+                     * @returns WeeklyMaintenanceWindow
+                     * @throws {Error} If the payload is not a reader or valid buffer
+                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                     */
+                    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): google.cloud.redis.v1.WeeklyMaintenanceWindow;
+
+                    /**
+                     * Verifies a WeeklyMaintenanceWindow message.
+                     * @param message Plain object to verify
+                     * @returns `null` if valid, otherwise the reason why it is not
+                     */
+                    public static verify(message: { [k: string]: any }): (string|null);
+
+                    /**
+                     * Creates a WeeklyMaintenanceWindow message from a plain object. Also converts values to their respective internal types.
+                     * @param object Plain object
+                     * @returns WeeklyMaintenanceWindow
+                     */
+                    public static fromObject(object: { [k: string]: any }): google.cloud.redis.v1.WeeklyMaintenanceWindow;
+
+                    /**
+                     * Creates a plain object from a WeeklyMaintenanceWindow message. Also converts values to other types if specified.
+                     * @param message WeeklyMaintenanceWindow
+                     * @param [options] Conversion options
+                     * @returns Plain object
+                     */
+                    public static toObject(message: google.cloud.redis.v1.WeeklyMaintenanceWindow, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+                    /**
+                     * Converts this WeeklyMaintenanceWindow to JSON.
+                     * @returns JSON object
+                     */
+                    public toJSON(): { [k: string]: any };
+                }
+
+                /** Properties of a MaintenanceSchedule. */
+                interface IMaintenanceSchedule {
+
+                    /** MaintenanceSchedule startTime */
+                    startTime?: (google.protobuf.ITimestamp|null);
+
+                    /** MaintenanceSchedule endTime */
+                    endTime?: (google.protobuf.ITimestamp|null);
+
+                    /** MaintenanceSchedule canReschedule */
+                    canReschedule?: (boolean|null);
+
+                    /** MaintenanceSchedule scheduleDeadlineTime */
+                    scheduleDeadlineTime?: (google.protobuf.ITimestamp|null);
+                }
+
+                /** Represents a MaintenanceSchedule. */
+                class MaintenanceSchedule implements IMaintenanceSchedule {
+
+                    /**
+                     * Constructs a new MaintenanceSchedule.
+                     * @param [properties] Properties to set
+                     */
+                    constructor(properties?: google.cloud.redis.v1.IMaintenanceSchedule);
+
+                    /** MaintenanceSchedule startTime. */
+                    public startTime?: (google.protobuf.ITimestamp|null);
+
+                    /** MaintenanceSchedule endTime. */
+                    public endTime?: (google.protobuf.ITimestamp|null);
+
+                    /** MaintenanceSchedule canReschedule. */
+                    public canReschedule: boolean;
+
+                    /** MaintenanceSchedule scheduleDeadlineTime. */
+                    public scheduleDeadlineTime?: (google.protobuf.ITimestamp|null);
+
+                    /**
+                     * Creates a new MaintenanceSchedule instance using the specified properties.
+                     * @param [properties] Properties to set
+                     * @returns MaintenanceSchedule instance
+                     */
+                    public static create(properties?: google.cloud.redis.v1.IMaintenanceSchedule): google.cloud.redis.v1.MaintenanceSchedule;
+
+                    /**
+                     * Encodes the specified MaintenanceSchedule message. Does not implicitly {@link google.cloud.redis.v1.MaintenanceSchedule.verify|verify} messages.
+                     * @param message MaintenanceSchedule message or plain object to encode
+                     * @param [writer] Writer to encode to
+                     * @returns Writer
+                     */
+                    public static encode(message: google.cloud.redis.v1.IMaintenanceSchedule, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                    /**
+                     * Encodes the specified MaintenanceSchedule message, length delimited. Does not implicitly {@link google.cloud.redis.v1.MaintenanceSchedule.verify|verify} messages.
+                     * @param message MaintenanceSchedule message or plain object to encode
+                     * @param [writer] Writer to encode to
+                     * @returns Writer
+                     */
+                    public static encodeDelimited(message: google.cloud.redis.v1.IMaintenanceSchedule, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                    /**
+                     * Decodes a MaintenanceSchedule message from the specified reader or buffer.
+                     * @param reader Reader or buffer to decode from
+                     * @param [length] Message length if known beforehand
+                     * @returns MaintenanceSchedule
+                     * @throws {Error} If the payload is not a reader or valid buffer
+                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                     */
+                    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): google.cloud.redis.v1.MaintenanceSchedule;
+
+                    /**
+                     * Decodes a MaintenanceSchedule message from the specified reader or buffer, length delimited.
+                     * @param reader Reader or buffer to decode from
+                     * @returns MaintenanceSchedule
+                     * @throws {Error} If the payload is not a reader or valid buffer
+                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                     */
+                    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): google.cloud.redis.v1.MaintenanceSchedule;
+
+                    /**
+                     * Verifies a MaintenanceSchedule message.
+                     * @param message Plain object to verify
+                     * @returns `null` if valid, otherwise the reason why it is not
+                     */
+                    public static verify(message: { [k: string]: any }): (string|null);
+
+                    /**
+                     * Creates a MaintenanceSchedule message from a plain object. Also converts values to their respective internal types.
+                     * @param object Plain object
+                     * @returns MaintenanceSchedule
+                     */
+                    public static fromObject(object: { [k: string]: any }): google.cloud.redis.v1.MaintenanceSchedule;
+
+                    /**
+                     * Creates a plain object from a MaintenanceSchedule message. Also converts values to other types if specified.
+                     * @param message MaintenanceSchedule
+                     * @param [options] Conversion options
+                     * @returns Plain object
+                     */
+                    public static toObject(message: google.cloud.redis.v1.MaintenanceSchedule, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+                    /**
+                     * Converts this MaintenanceSchedule to JSON.
+                     * @returns JSON object
+                     */
+                    public toJSON(): { [k: string]: any };
                 }
 
                 /** Properties of a ListInstancesRequest. */

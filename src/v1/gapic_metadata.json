@@ -55,6 +55,11 @@
                 "deleteInstance"
               ]
             },
+            "RescheduleMaintenance": {
+              "methods": [
+                "rescheduleMaintenance"
+              ]
+            },
             "ListInstances": {
               "methods": [
                 "listInstances",
@@ -110,6 +115,11 @@
             "DeleteInstance": {
               "methods": [
                 "deleteInstance"
+              ]
+            },
+            "RescheduleMaintenance": {
+              "methods": [
+                "rescheduleMaintenance"
               ]
             },
             "ListInstances": {

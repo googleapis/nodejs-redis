@@ -446,6 +446,54 @@
           }
         }
       }
+    },
+    {
+      "regionTag": "redis_v1_generated_CloudRedis_RescheduleMaintenance_async",
+      "title": "CloudRedis rescheduleMaintenance Sample",
+      "origin": "API_DEFINITION",
+      "description": " Reschedule maintenance for a given instance in a given project and location.",
+      "canonical": true,
+      "file": "cloud_redis.reschedule_maintenance.js",
+      "language": "JAVASCRIPT",
+      "segments": [
+        {
+          "start": 25,
+          "end": 64,
+          "type": "FULL"
+        }
+      ],
+      "clientMethod": {
+        "shortName": "RescheduleMaintenance",
+        "fullName": "google.cloud.redis.v1.CloudRedis.RescheduleMaintenance",
+        "async": true,
+        "parameters": [
+          {
+            "name": "name",
+            "type": "TYPE_STRING"
+          },
+          {
+            "name": "reschedule_type",
+            "type": ".google.cloud.redis.v1.RescheduleMaintenanceRequest.RescheduleType"
+          },
+          {
+            "name": "schedule_time",
+            "type": ".google.protobuf.Timestamp"
+          }
+        ],
+        "resultType": ".google.longrunning.Operation",
+        "client": {
+          "shortName": "CloudRedisClient",
+          "fullName": "google.cloud.redis.v1.CloudRedisClient"
+        },
+        "method": {
+          "shortName": "RescheduleMaintenance",
+          "fullName": "google.cloud.redis.v1.CloudRedis.RescheduleMaintenance",
+          "service": {
+            "shortName": "CloudRedis",
+            "fullName": "google.cloud.redis.v1.CloudRedis"
+          }
+        }
+      }
     }
   ]
 }
