@@ -204,77 +204,77 @@ export namespace google {
                 namespace CloudRedis {
 
                     /**
-                     * Callback as used by {@link google.cloud.redis.v1.CloudRedis#listInstances}.
+                     * Callback as used by {@link google.cloud.redis.v1.CloudRedis|listInstances}.
                      * @param error Error, if any
                      * @param [response] ListInstancesResponse
                      */
                     type ListInstancesCallback = (error: (Error|null), response?: google.cloud.redis.v1.ListInstancesResponse) => void;
 
                     /**
-                     * Callback as used by {@link google.cloud.redis.v1.CloudRedis#getInstance}.
+                     * Callback as used by {@link google.cloud.redis.v1.CloudRedis|getInstance}.
                      * @param error Error, if any
                      * @param [response] Instance
                      */
                     type GetInstanceCallback = (error: (Error|null), response?: google.cloud.redis.v1.Instance) => void;
 
                     /**
-                     * Callback as used by {@link google.cloud.redis.v1.CloudRedis#getInstanceAuthString}.
+                     * Callback as used by {@link google.cloud.redis.v1.CloudRedis|getInstanceAuthString}.
                      * @param error Error, if any
                      * @param [response] InstanceAuthString
                      */
                     type GetInstanceAuthStringCallback = (error: (Error|null), response?: google.cloud.redis.v1.InstanceAuthString) => void;
 
                     /**
-                     * Callback as used by {@link google.cloud.redis.v1.CloudRedis#createInstance}.
+                     * Callback as used by {@link google.cloud.redis.v1.CloudRedis|createInstance}.
                      * @param error Error, if any
                      * @param [response] Operation
                      */
                     type CreateInstanceCallback = (error: (Error|null), response?: google.longrunning.Operation) => void;
 
                     /**
-                     * Callback as used by {@link google.cloud.redis.v1.CloudRedis#updateInstance}.
+                     * Callback as used by {@link google.cloud.redis.v1.CloudRedis|updateInstance}.
                      * @param error Error, if any
                      * @param [response] Operation
                      */
                     type UpdateInstanceCallback = (error: (Error|null), response?: google.longrunning.Operation) => void;
 
                     /**
-                     * Callback as used by {@link google.cloud.redis.v1.CloudRedis#upgradeInstance}.
+                     * Callback as used by {@link google.cloud.redis.v1.CloudRedis|upgradeInstance}.
                      * @param error Error, if any
                      * @param [response] Operation
                      */
                     type UpgradeInstanceCallback = (error: (Error|null), response?: google.longrunning.Operation) => void;
 
                     /**
-                     * Callback as used by {@link google.cloud.redis.v1.CloudRedis#importInstance}.
+                     * Callback as used by {@link google.cloud.redis.v1.CloudRedis|importInstance}.
                      * @param error Error, if any
                      * @param [response] Operation
                      */
                     type ImportInstanceCallback = (error: (Error|null), response?: google.longrunning.Operation) => void;
 
                     /**
-                     * Callback as used by {@link google.cloud.redis.v1.CloudRedis#exportInstance}.
+                     * Callback as used by {@link google.cloud.redis.v1.CloudRedis|exportInstance}.
                      * @param error Error, if any
                      * @param [response] Operation
                      */
                     type ExportInstanceCallback = (error: (Error|null), response?: google.longrunning.Operation) => void;
 
                     /**
-                     * Callback as used by {@link google.cloud.redis.v1.CloudRedis#failoverInstance}.
+                     * Callback as used by {@link google.cloud.redis.v1.CloudRedis|failoverInstance}.
                      * @param error Error, if any
                      * @param [response] Operation
                      */
                     type FailoverInstanceCallback = (error: (Error|null), response?: google.longrunning.Operation) => void;
 
                     /**
-                     * Callback as used by {@link google.cloud.redis.v1.CloudRedis#deleteInstance}.
+                     * Callback as used by {@link google.cloud.redis.v1.CloudRedis|deleteInstance}.
                      * @param error Error, if any
                      * @param [response] Operation
                      */
                     type DeleteInstanceCallback = (error: (Error|null), response?: google.longrunning.Operation) => void;
 
                     /**
-                     * Callback as used by {@link google.cloud.redis.v1.CloudRedis#rescheduleMaintenance}.
+                     * Callback as used by {@link google.cloud.redis.v1.CloudRedis|rescheduleMaintenance}.
                      * @param error Error, if any
                      * @param [response] Operation
                      */
@@ -3234,77 +3234,77 @@ export namespace google {
                 namespace CloudRedis {
 
                     /**
-                     * Callback as used by {@link google.cloud.redis.v1beta1.CloudRedis#listInstances}.
+                     * Callback as used by {@link google.cloud.redis.v1beta1.CloudRedis|listInstances}.
                      * @param error Error, if any
                      * @param [response] ListInstancesResponse
                      */
                     type ListInstancesCallback = (error: (Error|null), response?: google.cloud.redis.v1beta1.ListInstancesResponse) => void;
 
                     /**
-                     * Callback as used by {@link google.cloud.redis.v1beta1.CloudRedis#getInstance}.
+                     * Callback as used by {@link google.cloud.redis.v1beta1.CloudRedis|getInstance}.
                      * @param error Error, if any
                      * @param [response] Instance
                      */
                     type GetInstanceCallback = (error: (Error|null), response?: google.cloud.redis.v1beta1.Instance) => void;
 
                     /**
-                     * Callback as used by {@link google.cloud.redis.v1beta1.CloudRedis#getInstanceAuthString}.
+                     * Callback as used by {@link google.cloud.redis.v1beta1.CloudRedis|getInstanceAuthString}.
                      * @param error Error, if any
                      * @param [response] InstanceAuthString
                      */
                     type GetInstanceAuthStringCallback = (error: (Error|null), response?: google.cloud.redis.v1beta1.InstanceAuthString) => void;
 
                     /**
-                     * Callback as used by {@link google.cloud.redis.v1beta1.CloudRedis#createInstance}.
+                     * Callback as used by {@link google.cloud.redis.v1beta1.CloudRedis|createInstance}.
                      * @param error Error, if any
                      * @param [response] Operation
                      */
                     type CreateInstanceCallback = (error: (Error|null), response?: google.longrunning.Operation) => void;
 
                     /**
-                     * Callback as used by {@link google.cloud.redis.v1beta1.CloudRedis#updateInstance}.
+                     * Callback as used by {@link google.cloud.redis.v1beta1.CloudRedis|updateInstance}.
                      * @param error Error, if any
                      * @param [response] Operation
                      */
                     type UpdateInstanceCallback = (error: (Error|null), response?: google.longrunning.Operation) => void;
 
                     /**
-                     * Callback as used by {@link google.cloud.redis.v1beta1.CloudRedis#upgradeInstance}.
+                     * Callback as used by {@link google.cloud.redis.v1beta1.CloudRedis|upgradeInstance}.
                      * @param error Error, if any
                      * @param [response] Operation
                      */
                     type UpgradeInstanceCallback = (error: (Error|null), response?: google.longrunning.Operation) => void;
 
                     /**
-                     * Callback as used by {@link google.cloud.redis.v1beta1.CloudRedis#importInstance}.
+                     * Callback as used by {@link google.cloud.redis.v1beta1.CloudRedis|importInstance}.
                      * @param error Error, if any
                      * @param [response] Operation
                      */
                     type ImportInstanceCallback = (error: (Error|null), response?: google.longrunning.Operation) => void;
 
                     /**
-                     * Callback as used by {@link google.cloud.redis.v1beta1.CloudRedis#exportInstance}.
+                     * Callback as used by {@link google.cloud.redis.v1beta1.CloudRedis|exportInstance}.
                      * @param error Error, if any
                      * @param [response] Operation
                      */
                     type ExportInstanceCallback = (error: (Error|null), response?: google.longrunning.Operation) => void;
 
                     /**
-                     * Callback as used by {@link google.cloud.redis.v1beta1.CloudRedis#failoverInstance}.
+                     * Callback as used by {@link google.cloud.redis.v1beta1.CloudRedis|failoverInstance}.
                      * @param error Error, if any
                      * @param [response] Operation
                      */
                     type FailoverInstanceCallback = (error: (Error|null), response?: google.longrunning.Operation) => void;
 
                     /**
-                     * Callback as used by {@link google.cloud.redis.v1beta1.CloudRedis#deleteInstance}.
+                     * Callback as used by {@link google.cloud.redis.v1beta1.CloudRedis|deleteInstance}.
                      * @param error Error, if any
                      * @param [response] Operation
                      */
                     type DeleteInstanceCallback = (error: (Error|null), response?: google.longrunning.Operation) => void;
 
                     /**
-                     * Callback as used by {@link google.cloud.redis.v1beta1.CloudRedis#rescheduleMaintenance}.
+                     * Callback as used by {@link google.cloud.redis.v1beta1.CloudRedis|rescheduleMaintenance}.
                      * @param error Error, if any
                      * @param [response] Operation
                      */
@@ -8539,6 +8539,9 @@ export namespace google {
             /** FieldOptions lazy */
             lazy?: (boolean|null);
 
+            /** FieldOptions unverifiedLazy */
+            unverifiedLazy?: (boolean|null);
+
             /** FieldOptions deprecated */
             deprecated?: (boolean|null);
 
@@ -8575,6 +8578,9 @@ export namespace google {
 
             /** FieldOptions lazy. */
             public lazy: boolean;
+
+            /** FieldOptions unverifiedLazy. */
+            public unverifiedLazy: boolean;
 
             /** FieldOptions deprecated. */
             public deprecated: boolean;
@@ -10377,35 +10383,35 @@ export namespace google {
         namespace Operations {
 
             /**
-             * Callback as used by {@link google.longrunning.Operations#listOperations}.
+             * Callback as used by {@link google.longrunning.Operations|listOperations}.
              * @param error Error, if any
              * @param [response] ListOperationsResponse
              */
             type ListOperationsCallback = (error: (Error|null), response?: google.longrunning.ListOperationsResponse) => void;
 
             /**
-             * Callback as used by {@link google.longrunning.Operations#getOperation}.
+             * Callback as used by {@link google.longrunning.Operations|getOperation}.
              * @param error Error, if any
              * @param [response] Operation
              */
             type GetOperationCallback = (error: (Error|null), response?: google.longrunning.Operation) => void;
 
             /**
-             * Callback as used by {@link google.longrunning.Operations#deleteOperation}.
+             * Callback as used by {@link google.longrunning.Operations|deleteOperation}.
              * @param error Error, if any
              * @param [response] Empty
              */
             type DeleteOperationCallback = (error: (Error|null), response?: google.protobuf.Empty) => void;
 
             /**
-             * Callback as used by {@link google.longrunning.Operations#cancelOperation}.
+             * Callback as used by {@link google.longrunning.Operations|cancelOperation}.
              * @param error Error, if any
              * @param [response] Empty
              */
             type CancelOperationCallback = (error: (Error|null), response?: google.protobuf.Empty) => void;
 
             /**
-             * Callback as used by {@link google.longrunning.Operations#waitOperation}.
+             * Callback as used by {@link google.longrunning.Operations|waitOperation}.
              * @param error Error, if any
              * @param [response] Operation
              */
