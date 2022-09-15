@@ -25,5 +25,6 @@ def patch(library: pathlib.Path):
 
 node.owlbot_main(
     staging_excludes=['package.json', 'README.md'],
+    templates_excludes=['README.md'],
     patch_staging=patch
 )
