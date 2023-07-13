@@ -8,7 +8,7 @@
 [![npm version](https://img.shields.io/npm/v/@google-cloud/redis.svg)](https://www.npmjs.org/package/@google-cloud/redis)
 
 
-## **_THIS REPOSITORY HAS BEEN ARCHIVED. ALL OF ITS CONTENT AND HISTORY HAS BEEN MOVED TO [GOOGLE-CLOUD-NODE](https://github.com/googleapis/google-cloud-node/tree/main/packages/google-cloud-redis)_**
+
 
 Google Cloud Memorystore for Redis API client for Node.js
 
